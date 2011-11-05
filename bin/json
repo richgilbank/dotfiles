@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Parse a JSON string and pretty-print it.
+#
+
+python -mjson.tool <<< "$*" | pygmentize -l javascript

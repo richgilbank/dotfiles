@@ -1,0 +1,22 @@
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;; Add in your own as you wish:
+(defvar my-packages '(starter-kit color-theme color-theme-solarized
+                      clojure-mode find-file-in-project gist paredit
+                      idle-highlight-mode magit org org-magit pyflakes
+                      pylint python-mode python-pep8 ruby-mode yaml-mode)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+(require 'color-theme)
+(require 'color-theme-solarized)
+(color-theme-solarized-dark)

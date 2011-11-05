@@ -1,0 +1,18 @@
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES=$HOME/.dotfiles
+
+# source every .sh file in this repo
+for file in $DOTFILES/**/*.sh; do
+  [ -r "$file" ] && source "$file"
+done
+unset file
+
+# use .localrc for secrets that you do not want in your public, versioned repo
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+export PATH="/usr/local/share/python:/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
+
+export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"

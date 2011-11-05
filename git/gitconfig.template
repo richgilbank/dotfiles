@@ -1,0 +1,17 @@
+[user]
+  name = __USER_NAME__
+  email = __USER_EMAIL__
+[core]
+  excludesfile = $HOME/.gitexcludes
+[alias]
+  co = checkout
+  st = status -sb
+  shortsha = rev-parse --short HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  wc = whatchanged --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  count = !git shortlog -sn
+[color]
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto

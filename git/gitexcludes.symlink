@@ -1,0 +1,10 @@
+.DS_Store
+.svn
+*~
+*.swp
+*~.nib
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.tm_build_errors
