@@ -10,13 +10,30 @@
 (defvar my-packages '(starter-kit color-theme color-theme-solarized
                       clojure-mode find-file-in-project gist paredit
                       idle-highlight-mode magit org org-magit pyflakes
-                      pylint python-mode python-pep8 ruby-mode yaml-mode)
+                      pylint python-mode python-pep8 ruby-mode yaml-mode
+                      markdown-mode textmate)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; read in PATH from .bash_profile
+(if (not (getenv "TERM_PROGRAM"))
+  (setenv "PATH"
+    (shell-command-to-string "source $HOME/.bash_profile && printf $PATH")))
+
 (require 'color-theme)
 (require 'color-theme-solarized)
 (color-theme-solarized-dark)
+
+;; enable textmate minor mode
+(textmate-mode)
+
+;; configure the file extensions used by markdown mode
+(setq auto-mode-alist
+  (cons '("\\.md" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist
+    (cons '("\\.mdown" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist
+  (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
