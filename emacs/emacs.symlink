@@ -37,3 +37,17 @@
     (cons '("\\.mdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist
   (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
+
+;; reduce the number of signals that can trigger the alarm bell
+(setq ring-bell-function
+      (lambda ()
+        (unless (memq this-command
+                      '(isearch-abort
+                        abort-recursive-edit
+                        exit-minibuffer
+                        keyboard-quit
+                        up down
+                        previous-line next-line
+                        backward-char forward-char
+                        mwheel-scroll))
+          (ding))))
