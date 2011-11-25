@@ -11,7 +11,7 @@
                       clojure-mode find-file-in-project gist paredit
                       idle-highlight-mode magit org org-magit pyflakes
                       pylint python-mode python-pep8 ruby-mode yaml-mode
-                      markdown-mode textmate find-things-fast)
+                      markdown-mode textmate find-things-fast coffee-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
