@@ -57,6 +57,22 @@
                         mwheel-scroll))
           (ding))))
 
+;; move point from window to window using shift and the arrow keys
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
+;; display trailing whitespace
+(setq-default show-trailing-whitespace t)
+
+;; automatically delete trailing whitespace
+(add-hook 'write-file-hooks 'delete-trailing-whitespace)
+
+;; do not scroll dramatically when moving one line at a time
+(setq-default scroll-conservatively 1)
+
+;; highlight 80+ for Python
+(add-hook 'python-mode-hook (lambda () (highlight-80+-mode)))
+
 ;; misc functions, from emacs-prelude
 ;; https://github.com/bbatsov/emacs-prelude/blob/master/modules/prelude-core.el
 
