@@ -17,4 +17,5 @@ export PATH="/usr/local/share/python:/usr/local/bin:/usr/local/sbin:$DOTFILES/bi
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-export EDITOR='emacs'
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait'
+

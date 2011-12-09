@@ -23,6 +23,9 @@
   (setenv "PATH"
     (shell-command-to-string "source $HOME/.bash_profile && printf $PATH")))
 
+;; start a single emacs server
+(server-start)
+
 (require 'color-theme)
 (require 'color-theme-solarized)
 (color-theme-solarized-dark)
