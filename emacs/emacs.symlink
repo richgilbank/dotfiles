@@ -1,5 +1,9 @@
 ;; -*- mode: emacs-lisp -*-
 
+;; note: in order for flyspell to work, aspell must be installed
+;; $ brew install aspell --lang=en
+;; NOTE: still having issues with flyspell -- need to investigate
+
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)

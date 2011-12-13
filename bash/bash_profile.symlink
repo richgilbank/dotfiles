@@ -17,5 +17,5 @@ export PATH="/usr/local/share/python:/usr/local/bin:/usr/local/sbin:$DOTFILES/bi
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait'
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait --create-frame'
 
