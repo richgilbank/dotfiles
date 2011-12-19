@@ -80,6 +80,9 @@
 ;; Enable the menu bar
 (menu-bar-mode t)
 
+;; Show column numbers
+(setq column-number-mode t)
+
 ;; Switch to prev/ next buffer using OS X keybindings
 (global-set-key (kbd "s-{") 'switch-to-prev-buffer)
 (global-set-key (kbd "s-}") 'switch-to-next-buffer)
