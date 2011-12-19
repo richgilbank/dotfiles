@@ -77,6 +77,9 @@
 ;; highlight 80+ for Python
 (add-hook 'python-mode-hook (lambda () (highlight-80+-mode)))
 
+;; Enable the menu bar
+(menu-bar-mode t)
+
 ;; misc functions, from emacs-prelude
 ;; https://github.com/bbatsov/emacs-prelude/blob/master/modules/prelude-core.el
 
