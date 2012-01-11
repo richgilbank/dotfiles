@@ -65,6 +65,9 @@
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
+;; Use org-indent-mode by default
+(add-hook 'org-mode-hook (lambda () (org-indent-mode t)) t)
+
 ;; display trailing whitespace
 (setq-default show-trailing-whitespace t)
 
