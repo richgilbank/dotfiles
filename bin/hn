@@ -55,12 +55,13 @@ hackernews()
     sed_attributes="-E"
   fi
 
-  attributes="title|link"
+  attributes="title|link|comments"
   curl -s "http://news.ycombinator.com/rss" |
     grep -Eio "<item>.*</item>" |
     grep -Eio "<($attributes)>[^<>]*</($attributes)>" |
     sed $sed_attributes "s/<title>([^<>]*)<\/title>/$highlight_title\1/" |
-    sed $sed_attributes "s/<link>([^<>]*)<\/link>/$highlight_link\1★/" |
+    sed $sed_attributes "s/<link>([^<>]*)<\/link>/$highlight_link\1/" |
+    sed $sed_attributes "s/<comments>([^<>]*)<\/comments>/$highlight_comments\1★/" |
     tr "★" "\n" |
     head -n $limit
   printf "\033[0m"
@@ -79,6 +80,13 @@ set_color()
   then
     highlight_link=""
   fi
+
+  highlight_comments=`echo "\033[0;32m"`
+  if [ "$highlight_comments" = "\033[0;33m" ]
+  then
+    highlight_comments=""
+  fi
+
 }
 
 while getopts "chl:" OPTION
