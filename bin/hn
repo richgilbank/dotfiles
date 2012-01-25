@@ -11,7 +11,6 @@ help()
     hn [-c] [-h] [-l LIMIT]
 
   OPTIONS:
-    -c    Colorize the output.
     -l    Limit to LIMIT articles.
     -h    prints a summary of the help options.
 
@@ -89,9 +88,6 @@ do
       help
       exit 1;
       ;;
-    c)
-      set_color
-      ;;
     l)
       limit=$OPTARG
       if ! [ $limit -ge 1 ] || ! [ $limit -le 30 ]
@@ -106,5 +102,7 @@ do
       ;;
   esac
 done
+
+set_color
 
 hackernews
