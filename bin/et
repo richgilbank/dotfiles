@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Quick shortcut to an editor.
+# Quick shortcut to an editor (opens in the terminal).
 #
 # USAGE:
 #
@@ -13,7 +13,7 @@
 
 if test "$1" == ""
 then
-  $($EDITOR --no-wait --create-frame .)
+  $EDITOR -nw .
 else
-  $($EDITOR --no-wait --create-frame $1)
+  $EDITOR -nw $1
 fi
