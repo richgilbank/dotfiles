@@ -17,7 +17,8 @@
                       clojure-mode find-file-in-project gist paredit
                       idle-highlight-mode magit org org-magit pyflakes
                       pylint python-mode python-pep8 ruby-mode yaml-mode
-                      markdown-mode textmate find-things-fast coffee-mode)
+                      markdown-mode textmate find-things-fast coffee-mode
+                      color-theme-ir-black)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -34,7 +35,17 @@
 
 (require 'color-theme)
 (require 'color-theme-solarized)
+(require 'color-theme-ir-black)
+(setq color-theme-is-global nil)
+
 (color-theme-solarized-dark)
+
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+             (select-frame frame)
+             (if (window-system frame)
+                 (color-theme-solarized-dark)
+                 (color-theme-ir-black))))
 
 ;; enable textmate minor mode
 (textmate-mode)
