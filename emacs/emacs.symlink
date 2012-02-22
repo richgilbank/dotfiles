@@ -62,6 +62,9 @@
 ;; enable textmate minor mode
 (textmate-mode)
 
+;; use clojure-mode to edit ClojureScript files
+(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+
 ;; configure the file extensions used by markdown mode
 (setq auto-mode-alist
   (cons '("\\.md" . markdown-mode) auto-mode-alist))
