@@ -73,6 +73,14 @@
 (setq auto-mode-alist
   (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 
+;; Use visual line mode by default for markdown files.
+(add-hook 'markdown-mode-hook 'turn-off-auto-fill)
+(add-hook 'markdown-mode-hook 'turn-on-visual-line-mode)
+
+;; Use visual line mode by default for org files.
+(add-hook 'org-mode-hook 'turn-off-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-visual-line-mode)
+
 ;; reduce the number of signals that can trigger the alarm bell
 (setq ring-bell-function
       (lambda ()
