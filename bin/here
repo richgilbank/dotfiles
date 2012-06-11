@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Copy current location directly to a string.
+#
+set -e
+
+pwd | pbcopy
+
