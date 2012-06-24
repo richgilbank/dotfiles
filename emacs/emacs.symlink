@@ -59,6 +59,11 @@
 (defun track-mouse (e))
 (setq mouse-sel-mode t)
 
+;; Enable cua mode, but only for rectangles.
+;; (C-RET will start a rectangular selection.)
+(setq cua-enable-cua-keys nil)
+(cua-mode t)
+
 ;; enable textmate minor mode
 (textmate-mode)
 
