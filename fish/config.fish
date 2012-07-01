@@ -30,7 +30,7 @@ function fish_prompt --description 'Write out the prompt'
             end
         end
 
-        printf '⚡⚡ %s@%s:%s%s%s%s# ' $USER $__fish_prompt_hostname "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
+        printf '⚡⚡ %s%s%s%s# ' "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
 
         case '*'
 
@@ -38,7 +38,7 @@ function fish_prompt --description 'Write out the prompt'
             set -g __fish_prompt_cwd (set_color $fish_color_cwd)
         end
 
-        printf '⚡⚡ %s@%s:%s%s%s%s$ ' $USER $__fish_prompt_hostname "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
+        printf '⚡⚡ %s%s%s%s$ ' "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
 
     end
 end
