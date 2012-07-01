@@ -21,9 +21,11 @@ notes
 - **topic/\*.symlink**: Any files ending in `*.symlink` get symlinked into
   your `$HOME`. (These files get symlinked when you run `rake install`.)
 
+  - symlinks can be generated in cases where these standard **topic/\*.symlink**
+  symlink rules do not apply; see the `:install` task of the `Rakefile` for details.
+
 - **.localrc**: Create a file called `.localrc` to store any data that you do
   not want committed to the git repository (secrets, etc.).
-
 
 system
 ------

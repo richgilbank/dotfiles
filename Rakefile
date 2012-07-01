@@ -22,14 +22,30 @@
 #
 # Note: - Some edits made by Andrew Sardone to create the gitconfig installation
 #         procedure. https://github.com/andrewsardone/dotfiles
-#       - Other minor edits made by Michael Russo. http://mjrusso.com
-
+#       - Other edits made by Michael Russo, including the ability to
+#         move files into place that are not in the standard location
+#         of '*/**{.symlink}'. http://mjrusso.com
 
 require 'rake'
+require 'fileutils'
 
 desc "Hook our dotfiles into system-standard positions."
 task :install => [:generate_gitconfig_from_template] do
-  linkables = Dir.glob('*/**{.symlink}')
+  linkables = Dir.glob('*/**{.symlink}').map! do |linkable|
+    file = linkable.split('/').last.split('.symlink').last
+    { "path" => linkable,
+      "file" => file,
+      "target" => "#{ENV["HOME"]}/.#{file}"
+    }
+  end
+
+  # Custom include for fish shell. The fish shell requires config
+  # files to be in the location of ~/.config/fish/config.fish.
+  FileUtils.mkdir_p "#{ENV['HOME']}/.config/fish"
+  linkables << { "path" => "fish/config.fish",
+    "file" => "config.fish",
+    "target" => "#{ENV['HOME']}/.config/fish/config.fish"
+  }
 
   skip_all = false
   overwrite_all = false
@@ -39,8 +55,9 @@ task :install => [:generate_gitconfig_from_template] do
     overwrite = false
     backup = false
 
-    file = linkable.split('/').last.split('.symlink').last
-    target = "#{ENV["HOME"]}/.#{file}"
+    path = linkable['path']
+    file = linkable['file']
+    target = linkable['target']
 
     if File.exists?(target) || File.symlink?(target)
       unless skip_all || overwrite_all || backup_all
@@ -55,9 +72,9 @@ task :install => [:generate_gitconfig_from_template] do
         end
       end
       FileUtils.rm_rf(target) if overwrite || overwrite_all
-      `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
+      `mv "#{target}" "#{target}.backup"` if backup || backup_all
     end
-    `ln -s "$PWD/#{linkable}" "#{target}"`
+    `ln -s "$PWD/#{path}" "#{target}"`
   end
 
   `source "$HOME/.bash_profile"`
