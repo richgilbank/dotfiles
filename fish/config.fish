@@ -1,5 +1,5 @@
 set -x DOTFILES $HOME/.dotfiles
-set -x PATH /usr/local/share/python /usr/local/bin $DOTFILES/bin $PATH
+set -x PATH /usr/local/Cellar/ruby/1.9.3-p194/bin /usr/local/bin $DOTFILES/bin $PATH
 set -x MANPATH /usr/local/man /usr/local/mysql/man /usr/local/git/man $MANPATH
 set -x EDITOR /usr/local/bin/emacsclient
 
@@ -30,7 +30,7 @@ function fish_prompt --description 'Write out the prompt'
             end
         end
 
-        printf '⚡⚡ %s%s%s%s# ' "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
+        printf '%s%s%s%s# ' "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
 
         case '*'
 
@@ -38,7 +38,7 @@ function fish_prompt --description 'Write out the prompt'
             set -g __fish_prompt_cwd (set_color $fish_color_cwd)
         end
 
-        printf '⚡⚡ %s%s%s%s$ ' "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
+        printf '%s%s%s%s$ ' "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal" $__git_cb
 
     end
 end
