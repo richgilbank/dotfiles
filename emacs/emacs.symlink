@@ -18,7 +18,7 @@
                       idle-highlight-mode magit org org-magit pyflakes
                       pylint python-mode python-pep8 ruby-mode yaml-mode
                       markdown-mode textmate find-things-fast coffee-mode
-                      color-theme-ir-black)
+                      color-theme-ir-black highlight-indentation)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -64,11 +64,28 @@
 (setq cua-enable-cua-keys nil)
 (cua-mode t)
 
+;; Display ido results vertically, rather than horizontally.
+(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
+(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
+
 ;; enable textmate minor mode
 (textmate-mode)
 
 ;; use clojure-mode to edit ClojureScript files
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+
+;; Set the default fill column width to 79.
+(setq-default fill-column 79)
+
+;; indentation highlighting
+(require 'highlight-indentation)
+
+;; set indentation in coffee mode
+(defun coffee-custom ()
+  (make-local-variable 'tab-width)
+  (set 'tab-width 2))
+(add-hook 'coffee-mode-hook 'coffee-custom)
 
 ;; configure the file extensions used by markdown mode
 (setq auto-mode-alist
