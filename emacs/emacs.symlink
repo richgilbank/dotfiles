@@ -19,7 +19,7 @@
                       pylint python-mode python-pep8 ruby-mode yaml-mode
                       markdown-mode textmate find-things-fast coffee-mode
                       color-theme-ir-black highlight-indentation
-                      mustache-mode)
+                      mustache-mode quack)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -161,6 +161,9 @@
 ;; Switch to prev/ next buffer using OS X keybindings
 (global-set-key (kbd "s-{") 'switch-to-prev-buffer)
 (global-set-key (kbd "s-}") 'switch-to-next-buffer)
+
+;; Support for Scheme.
+(require 'quack)
 
 ;; misc functions, from emacs-prelude
 ;; https://github.com/bbatsov/emacs-prelude/blob/master/modules/prelude-core.el
