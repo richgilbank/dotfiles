@@ -12,14 +12,31 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Add in your own as you wish:
-(defvar my-packages '(starter-kit color-theme color-theme-solarized
-                      clojure-mode find-file-in-project gist paredit
-                      idle-highlight-mode magit org org-magit pyflakes
-                      pylint python-mode python-pep8 ruby-mode yaml-mode
-                      markdown-mode textmate find-things-fast coffee-mode
-                      color-theme-ir-black highlight-indentation
-                      mustache-mode quack)
+(defvar my-packages '(starter-kit
+                      coffee-mode
+                      color-theme
+                      color-theme-solarized
+                      color-theme-ir-black
+                      clojure-mode
+                      find-file-in-project
+                      find-things-fast
+                      gist
+                      highlight-indentation
+                      idle-highlight-mode
+                      magit
+                      markdown-mode
+                      mustache-mode
+                      org
+                      org-magit
+                      paredit
+                      pyflakes
+                      pylint
+                      python-mode
+                      python-pep8
+                      quack
+                      ruby-mode
+                      textmate
+                      yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
