@@ -18,7 +18,8 @@
                       idle-highlight-mode magit org org-magit pyflakes
                       pylint python-mode python-pep8 ruby-mode yaml-mode
                       markdown-mode textmate find-things-fast coffee-mode
-                      color-theme-ir-black highlight-indentation)
+                      color-theme-ir-black highlight-indentation
+                      mustache-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -85,6 +86,9 @@
 
 ;; indentation highlighting
 (require 'highlight-indentation)
+
+;; enable mustache major mode (for editing mustache templates)
+(require 'mustache-mode)
 
 ;; set indentation in coffee mode
 (defun coffee-custom ()
