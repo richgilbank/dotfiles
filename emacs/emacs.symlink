@@ -26,6 +26,7 @@
                       magit
                       markdown-mode
                       mustache-mode
+                      nrepl
                       org
                       org-magit
                       paredit
