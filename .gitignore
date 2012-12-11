@@ -1,2 +1,9 @@
+**/*.DS_STORE
 git/gitconfig.symlink
 .localrc
+emacs/emacs.d.symlink/elpa
+emacs/emacs.d.symlink/backups
+emacs/emacs.d.symlink/places
+emacs/emacs.d.symlink/.smex-items
+emacs/emacs.d.symlink/eshell/history
+emacs/emacs.d.symlink/eshell/lastdir

@@ -1,143 +1,61 @@
 ;; -*- mode: emacs-lisp -*-
 
-;; note: in order for flyspell to work, aspell must be installed
-;; $ brew install aspell --lang=en
-;; NOTE: still having issues with flyspell -- need to investigate
-
+;; set up marmalade as package manager
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+		'("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; add MELPA to list of repos
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
-
 (when (not package-archive-contents)
-  (package-refresh-contents))
+    (package-refresh-contents))
 
-(defvar my-packages '(starter-kit
-                      coffee-mode
-                      color-theme
-                      color-theme-solarized
-                      color-theme-ir-black
-                      clojure-mode
-                      find-file-in-project
-                      find-things-fast
-                      gist
-                      highlight-indentation
-                      idle-highlight-mode
-                      magit
-                      markdown-mode
-                      mustache-mode
-                      nrepl
-                      org
-                      org-magit
-                      paredit
-                      pyflakes
-                      pylint
-                      python-mode
-                      python-pep8
-                      quack
-                      ruby-mode
-                      textmate
-                      yaml-mode)
+;; Add in your own as you wish:
+(defvar my-packages
+  '(starter-kit
+    multi-term
+    color-theme
+    color-theme-solarized
+    coffee-mode
+    markdown-mode
+    js2-mode
+    evil
+    evil-leader
+    scss-mode
+    )
   "A list of packages to ensure are installed at launch.")
 
+;; local plugins go in /plugins
+(add-to-list 'load-path "~/.emacs.d/plugins")
+
+;; local plugins
+(require 'dirtree)
+(require 'find-things-fast)
+
 (dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+    (when (not (package-installed-p p))
+          (package-install p)))
 
-;; Set PATH (read in from login shell).
-;; - http://stackoverflow.com/a/2566945
+;; no bg
+(set-background-color nil)
 
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell
-      (replace-regexp-in-string "[[:space:]\n]*$" ""
-        (shell-command-to-string "$SHELL -l -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
 
-(when (equal system-type 'darwin) (set-exec-path-from-shell-PATH))
+;; clear in eshell clears buffer
+(defun eshell/clear ()
+    "04Dec2001 - sailor, to clear the eshell buffer."
+      (interactive)
+        (let ((inhibit-read-only t))
+	      (erase-buffer)))
 
-;; start a single emacs server
-(server-start)
-
-;; Set default font to Source Code Pro.
-;; - https://github.com/adobe/Source-Code-Pro
-;; - http://blogs.adobe.com/typblography/2012/09/source-code-pro.html
-(add-to-list 'default-frame-alist '(font . "-apple-Source_Code_Pro-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
-
+;; boot up solarized theme
 (require 'color-theme)
-(require 'color-theme-solarized)
-(require 'color-theme-ir-black)
-(setq color-theme-is-global nil)
-
+(color-theme-initialize)
 (color-theme-solarized-dark)
 
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-             (select-frame frame)
-             (if (window-system frame)
-                 (color-theme-solarized-dark)
-                 (color-theme-ir-black))))
+(set-display-table-slot standard-display-table 'wrap ?\ )
 
-;; Enable mouse support in terminal.
-(require 'mouse)
-(xterm-mouse-mode t)
-(global-set-key [mouse-4] '(lambda ()
-                            (interactive)
-                            (scroll-down 1)))
-(global-set-key [mouse-5] '(lambda ()
-                            (interactive)
-                            (scroll-up 1)))
-(defun track-mouse (e))
-(setq mouse-sel-mode t)
-
-;; Enable cua mode, but only for rectangles.
-;; (C-RET will start a rectangular selection.)
-(setq cua-enable-cua-keys nil)
-(cua-mode t)
-
-;; Display ido results vertically, rather than horizontally.
-(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
-(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
-
-;; enable textmate minor mode
-(textmate-mode)
-
-;; use clojure-mode to edit ClojureScript files
-(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
-
-;; Set the default fill column width to 79.
-(setq-default fill-column 79)
-
-;; indentation highlighting
-(require 'highlight-indentation)
-
-;; enable mustache major mode (for editing mustache templates)
-(require 'mustache-mode)
-
-;; set indentation in coffee mode
-(defun coffee-custom ()
-  (make-local-variable 'tab-width)
-  (set 'tab-width 2))
-(add-hook 'coffee-mode-hook 'coffee-custom)
-
-;; configure the file extensions used by markdown mode
-(setq auto-mode-alist
-  (cons '("\\.md" . markdown-mode) auto-mode-alist))
-(setq auto-mode-alist
-    (cons '("\\.mdown" . markdown-mode) auto-mode-alist))
-(setq auto-mode-alist
-  (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
-
-;; Use visual line mode by default for markdown files.
-(add-hook 'markdown-mode-hook 'turn-off-auto-fill)
-(add-hook 'markdown-mode-hook 'turn-on-visual-line-mode)
-
-;; Use visual line mode by default for org files.
-(add-hook 'org-mode-hook 'turn-off-auto-fill)
-(add-hook 'org-mode-hook 'turn-on-visual-line-mode)
-
-;; reduce the number of signals that can trigger the alarm bell
+;; Reduce the number of signals that can trigger the alarm bell
 (setq ring-bell-function
       (lambda ()
         (unless (memq this-command
@@ -151,64 +69,54 @@
                         mwheel-scroll))
           (ding))))
 
-;; move point from window to window using shift and the arrow keys
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+;; Disable the visible notification (note: this seems to activate the audible
+;; bell).
+(setq visible-bell nil)
 
-;; Use org-indent-mode by default
-(add-hook 'org-mode-hook (lambda () (org-indent-mode t)) t)
+;; use a small font size for MBP Retina
+(set-face-attribute 'default nil :height 150)
+;; (set-face-attribute 'default nil :font "Menlo for Powerline")
 
-;; display trailing whitespace
-(setq-default show-trailing-whitespace t)
+;; display ido results vertically, rather than horizontally.
+(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
+(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
-;; automatically delete trailing whitespace
-(add-hook 'write-file-hooks 'delete-trailing-whitespace)
+;; set indentation in coffee mode
+(defun coffee-custom ()
+    (make-local-variable 'tab-width)
+      (set 'tab-width 2))
+(add-hook 'coffee-mode-hook 'coffee-custom)
 
-;; do not scroll dramatically when moving one line at a time
-(setq-default scroll-conservatively 1)
+;; VIM specific things...
+;; ======================
 
-;; highlight 80+ for Python
-(add-hook 'python-mode-hook (lambda () (highlight-80+-mode)))
+;; evil things...
 
-;; Enable the menu bar
-(menu-bar-mode t)
+;; init evil
+(require 'evil)
+(evil-mode 1)
+(require 'evil-leader)
 
-;; Show column numbers
-(setq column-number-mode t)
+;; unmap default keybind for ';'
+(define-key evil-motion-state-map ";" nil)
 
-;; Switch to prev/ next buffer using OS X keybindings
-(global-set-key (kbd "s-{") 'switch-to-prev-buffer)
-(global-set-key (kbd "s-}") 'switch-to-next-buffer)
+;; set leader to ';'
+(setq evil-leader/leader ";"
+      evil-leader/in-all-states t)
 
-;; Support for Scheme.
-(require 'quack)
+;; control + u for page up
+(define-key evil-motion-state-map (kbd "C-u") 'evil-scroll-up)
 
-;; misc functions, from emacs-prelude
-;; https://github.com/bbatsov/emacs-prelude/blob/master/modules/prelude-core.el
+;; escape quits all of the things
+(define-key evil-normal-state-map [escape] 'keyboard-quit)
+(define-key evil-visual-state-map [escape] 'keyboard-quit)
+(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
-(defun prelude-google ()
-  "Googles a query or region if any."
-  (interactive)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (if mark-active
-        (buffer-substring (region-beginning) (region-end))
-      (read-string "Google: ")))))
 
-(defun prelude-swap-windows ()
-  "If you have 2 windows, it swaps them."
-  (interactive)
-  (if (/= (count-windows) 2)
-      (message "You need exactly 2 windows to do this.")
-    (let* ((w1 (first (window-list)))
-           (w2 (second (window-list)))
-           (b1 (window-buffer w1))
-           (b2 (window-buffer w2))
-           (s1 (window-start w1))
-           (s2 (window-start w2)))
-      (set-window-buffer w1 b2)
-      (set-window-buffer w2 b1)
-      (set-window-start w1 s2)
-      (set-window-start w2 s1)))
-  (other-window 1))
+(global-set-key (kbd "C-c ;") 'evil-normal-state)
+(global-set-key (kbd "C-c o") 'tree-mode-toggle-expand)
