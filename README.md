@@ -10,6 +10,8 @@ installation
     git clone git://github.com/mjrusso/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     rake install
+    vim
+    :BundleInstall
 
 notes
 -----
