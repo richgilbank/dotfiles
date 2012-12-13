@@ -7,7 +7,7 @@ My fork of @mjsrusso's dotfiles. ([Inspiration](http://zachholman.com/2010/08/do
 installation
 ------------
 
-    git clone git://github.com/mjrusso/dotfiles ~/.dotfiles
+    git clone git://github.com/shanejonas/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     rake install
     vim

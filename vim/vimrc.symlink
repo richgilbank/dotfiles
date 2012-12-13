@@ -24,6 +24,7 @@ set showcmd                     " display incomplete commands
 set title                       " set the screen title to the currently opened file
 set gcr=n:blinkon0              " stop blinking cursors
 set laststatus=2                " for powerline visiblity
+set cmdheight=2
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
