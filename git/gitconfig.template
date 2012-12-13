@@ -3,6 +3,7 @@
   email = __USER_EMAIL__
 [core]
   excludesfile = $HOME/.gitexcludes
+	editor = vim
 [alias]
   co = checkout
   st = status -sb
