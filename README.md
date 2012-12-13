@@ -2,7 +2,7 @@ shanes's dotfiles
 ==================
 Focusing on Coffee-Script/Javascript Development
 
-My fork of @mjsrusso's dotfiles. ([Inspiration](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/))
+My fork of [@mjsrusso](http://github.com/mjrusso)'s dotfiles. ([Inspiration](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/))
 
 installation
 ------------
@@ -10,8 +10,7 @@ installation
     git clone git://github.com/shanejonas/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     rake install
-    vim
-    :BundleInstall
+    vim +BundleInstall +qall
 
 notes
 -----

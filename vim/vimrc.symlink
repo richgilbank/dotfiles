@@ -11,7 +11,7 @@ set encoding=utf-8
 
 filetype plugin indent on
 
-" call togglebg#map("<F5>")
+call togglebg#map("<F5>")
 
 " Some view/ux related stuff
 set background=dark
@@ -25,6 +25,10 @@ set title                       " set the screen title to the currently opened f
 set gcr=n:blinkon0              " stop blinking cursors
 set laststatus=2                " for powerline visiblity
 set cmdheight=2
+let g:Powerline_symbols = 'fancy'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_auto_loc_list=1
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers

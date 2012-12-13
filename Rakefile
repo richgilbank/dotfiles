@@ -76,8 +76,7 @@ task :install => [:generate_gitconfig_from_template] do
     end
     `ln -s "$PWD/#{path}" "#{target}"`
   end
-
-  `source "$HOME/.bash_profile"`
+  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
 
 end
 
