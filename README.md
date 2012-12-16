@@ -12,6 +12,13 @@ installation
     rake install
     vim +BundleInstall +qall
 
+my setup
+--------
+- Vim +vundle +powerline +vim-coffee-script +syntastic +supertab
+- Zsh +oh-my-zsh
+
+Bonus: Emacs +evil-mode (vim-bindings) for the adventurous
+
 notes
 -----
 
