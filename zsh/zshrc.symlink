@@ -30,39 +30,24 @@ plugins=(brew npm osx git vi-mode zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:~/node_modules/coffee-script/bin:~/node_modules:/usr/local/lib/node:/usr/local/share/npm/bin:/usr/local/lib/node_modules
 export PATH=~/bin:$PATH
-export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:$PATH
+export PATH=/usr/local/Cellar/ruby/1.9.3-p327/bin:$PATH
 export PATH=/usr/local/Cellar:$PATH
-export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
 export TERM=screen-256color
 alias npmi="npm install -g"
 alias chrome='open -a "Google Chrome"'
-alias rvm="~/.rvm/bin/rvm"
 
 #tmux colors
 alias tmux="TERM=screen-256color-bce tmux"
-
-# new tab from current dir
-# tab() {
-#   osascript -e "
-#   tell application \"iTerm\"
-#    tell the first terminal
-#     launch session \"Default Session\"
-#     tell the last session
-#      write text \"$(pwd)\"
-#     end tell
-#    end tell
-#   end tell"
-# }
-
 
 # useful commands
 alias up='cd ..'
 alias pbc='pwd | pbcopy'
 alias rnpm='rm -rf node_modules && npm install'
+alias viminstall='vim +BundleInstall +qall'
 
 # directory aliases
 export CODE="~/Code"
@@ -70,6 +55,7 @@ alias ap=$CODE/torontostar
 alias app=$CODE/torontostar
 alias sdk=$CODE/MediaEverywhere-SDK
 alias cli=$CODE/MediaEverywhere-CLI
+
 
 # work specific
 alias debug="me build --debug --serve --watch"
