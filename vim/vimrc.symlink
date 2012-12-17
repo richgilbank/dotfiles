@@ -177,6 +177,10 @@ let g:NERDTreeQuitOnOpen = 0
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader>c :CoffeeCompile<CR>
 
+"autoclose
+nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
+
+
 " c:number to jump coffee/js
 command -nargs=1 C CoffeeCompile | :<args>
 
