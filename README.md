@@ -1,8 +1,8 @@
-shanes's dotfiles
+Rich's dotfiles
 ==================
 Focusing on Coffee-Script/Javascript Development
 
-My fork of [@mjsrusso](http://github.com/mjrusso)'s dotfiles. ([Inspiration](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/))
+(My vim/zsh dotfiles, derived from Shane Jonas')[https://github.com/shanejonas/dotfiles]
 
 installation
 ------------
