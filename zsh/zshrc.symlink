@@ -1,4 +1,6 @@
+export DEFAULT_USER=richgilbank
 export ZSH=$HOME/.oh-my-zsh
+PATH=$PATH:$HOME/.rvm/bin
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -14,6 +16,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt NO_HIST_BEEP
 setopt SHARE_HISTORY
+setopt HIST_VERIFY
 
 #search backwards and forwards with a pattern
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
@@ -25,20 +28,24 @@ bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew npm osx git vi-mode zsh-syntax-highlighting)
+plugins=(brew npm osx git vi-mode zsh-syntax-highlighting ruby)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+source ~/.rvm/scripts/rvm
+rvm use default
+
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:~/node_modules/coffee-script/bin:~/node_modules:/usr/local/lib/node:/usr/local/share/npm/bin:/usr/local/lib/node_modules
 export PATH=~/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/usr/local/Cellar/ruby/1.9.3-p327/bin:$PATH
 export PATH=/usr/local/Cellar:$PATH
-export TERM=screen-256color
+export TERM=xterm-256color
 alias npmi="npm install -g"
 alias chrome='open -a "Google Chrome"'
+
+alias macvim='open -a "MacVim"'
 
 #tmux colors
 alias tmux="TERM=screen-256color-bce tmux"
@@ -50,12 +57,4 @@ alias rnpm='rm -rf node_modules && npm install'
 alias viminstall='vim +BundleInstall +qall'
 
 # directory aliases
-export CODE="~/Code"
-alias ap=$CODE/torontostar
-alias app=$CODE/torontostar
-alias sdk=$CODE/MediaEverywhere-SDK
-alias cli=$CODE/MediaEverywhere-CLI
-
-
-# work specific
-alias debug="me build --debug --serve --watch"
+alias telus="cd ~/Sites/telus-product-management-system"

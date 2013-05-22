@@ -18,7 +18,7 @@ set background=dark
 colorscheme solarized
 set ruler                       " show the cursor position all the time
 set number                      " show line numbers
-set cursorline                  " draw a line on the same as the cursor position
+" set cursorline                  " draw a line on the same as the cursor position
 set mouse=a                     " enable mouse support
 set showcmd                     " display incomplete commands
 set title                       " set the screen title to the currently opened file
@@ -67,6 +67,10 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 set cc=80                       " set colorcolumn 80 to visualize 80th column
+
+" MacVim
+set guioptions-=L
+set guioptions-=r
 
 set wildmenu
 set wildmode=list:longest,full
