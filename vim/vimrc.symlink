@@ -159,6 +159,7 @@ map <Down>  :echo "no!"<cr>
 
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " quit NERDTree after opening a file
 let g:NERDTreeQuitOnOpen = 0
