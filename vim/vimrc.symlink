@@ -93,6 +93,7 @@ if has("autocmd")
   au BufRead,BufNewFile [Vv]olofile setf javascript
   au BufNewFile,BufRead *.jst set ft=html
   au BufNewFile,BufRead *.mustache set ft=html
+  au BufNewFile,BufRead *.hbs set ft=html
   au BufNewFile,BufRead *.jeco set ft=eco
 
   " Treat JSON files like JavaScript
@@ -148,6 +149,9 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" allow mustache-type double curly braces
+inoremap {{ {{}}<Left><Left>
 
 " disable cursor keys in normal mode
 map <Left>  :echo "no!"<cr>
