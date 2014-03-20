@@ -8,6 +8,10 @@ call vundle#rc()
 source $HOME/.vim/packages.vim
 
 set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸\ 
+set fillchars+=stl:\ ,stlnc:\
 
 filetype plugin indent on
 
@@ -18,13 +22,16 @@ set background=dark
 colorscheme solarized
 set ruler                       " show the cursor position all the time
 set number                      " show line numbers
-" set cursorline                  " draw a line on the same as the cursor position
+set cursorline                  " draw a line on the same as the cursor position
 set mouse=a                     " enable mouse support
 set showcmd                     " display incomplete commands
 set title                       " set the screen title to the currently opened file
 set gcr=n:blinkon0              " stop blinking cursors
 set laststatus=2                " for powerline visiblity
 set cmdheight=2
+
+set synmaxcol=100
+
 let g:Powerline_symbols = 'fancy'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -46,7 +53,8 @@ set nowb
 set noswapfile
 
 "" Whitespace
-set nowrap                        " don't wrap lines
+set nowrap                          " wrap lines
+set textwidth=0 wrapmargin=0
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
@@ -92,9 +100,12 @@ if has("autocmd")
   au BufRead,BufNewFile Jakefile setf javascript
   au BufRead,BufNewFile [Vv]olofile setf javascript
   au BufNewFile,BufRead *.jst set ft=html
+  au BufNewFile,BufRead *.eco set ft=html
   au BufNewFile,BufRead *.mustache set ft=html
+  au BufNewFile,BufRead *.hb set ft=html
   au BufNewFile,BufRead *.hbs set ft=html
   au BufNewFile,BufRead *.jeco set ft=eco
+  autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
