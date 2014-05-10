@@ -30,7 +30,7 @@ set gcr=n:blinkon0              " stop blinking cursors
 set laststatus=2                " for powerline visiblity
 set cmdheight=2
 
-set synmaxcol=100
+set synmaxcol=200
 
 let g:Powerline_symbols = 'fancy'
 let g:syntastic_error_symbol='✗'
