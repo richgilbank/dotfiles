@@ -8,9 +8,10 @@ Bundle 'The-NERD-tree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
+Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 Bundle "altercation/vim-colors-solarized"
+Bundle "wavded/vim-stylus"
 Bundle 'Solarized'
 Bundle 'SuperTab-continued.'
 Bundle 'surround.vim'

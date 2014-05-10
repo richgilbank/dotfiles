@@ -39,6 +39,8 @@
      Bundle 'FuzzyFinder'
      " non github repos
      Bundle 'git://git.wincent.com/command-t.git'
+     " git repos on your local machine (ie. when working on your own plugin)
+     Bundle 'file:///Users/gmarik/path/to/plugin'
      " ...
 
      filetype plugin indent on     " required!
@@ -90,11 +92,11 @@ see [`:h vundle`](vundle/blob/master/doc/vundle.txt#L1) vimdoc for more details.
 
 ## People Using Vundle
 
-see [Examples](/gmarik/vundle/wiki/Examples)
+see [Examples](https://github.com/gmarik/vundle/wiki/Examples)
 
 ## FAQ
 
-see [wiki](/gmarik/vundle/wiki)
+see [wiki](https://github.com/gmarik/vundle/wiki)
 
 ## Contributors
 

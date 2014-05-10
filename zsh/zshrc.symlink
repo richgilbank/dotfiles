@@ -31,16 +31,14 @@ plugins=(brew npm osx git vi-mode zsh-syntax-highlighting ruby)
 
 source $ZSH/oh-my-zsh.sh
 
-# RBEnv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(rbenv init -)"
+export LANG=en_US.UTF-8
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:~/node_modules/coffee-script/bin:~/node_modules:/usr/local/lib/node:/usr/local/share/npm/bin:/usr/local/lib/node_modules
 export PATH=~/bin:$PATH
+export PATH=/opt/boxen/homebrew/bin:$PATH
 export PATH=/opt/local/bin:$PATH
-export PATH=/usr/local/Cellar/ruby/1.9.3-p327/bin:$PATH
-export PATH=/usr/local/Cellar:$PATH
-export TERM=xterm-256color
+export PATH=/Applications/Eclipse/sdk/tools:$PATH
+export PATH=/Applications/Eclipse/sdk/platform-tools:$PATH
+export LINEMAN_AUTO_WATCH=true
 alias npmi="npm install -g"
 alias chrome='open -a "Google Chrome"'
 
@@ -55,6 +53,31 @@ alias pbc='pwd | pbcopy'
 alias rnpm='rm -rf node_modules && npm install'
 alias viminstall='vim +BundleInstall +qall'
 alias grunt='nocorrect grunt'
+alias ag='nocorrect ag'
+alias serve="python -m SimpleHTTPServer"
+alias jsonprint="python -mjson.tool"
+alias bi='bundle install'
+alias be='bundle exec'
+alias ip='ifconfig | grep "inet 192.168"'
+alias rt='bundle exec ruby -Itest'
 
-# directory aliases
-export PATH="$HOME/.rbenv/shims:$PATH"
+# git commands
+alias co='git checkout'
+alias gs='git status'
+alias pull='git pull origin'
+alias push='git push origin $(current_branch)'
+
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+    ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Vagrant
+alias vu='cd ~/Code/vagrant && vagrant up && vagrant ssh'
+alias vs='cd ~/Code/vagrant && vagrant ssh'
+alias sh='cd ~/Code/vagrant/src/Shopify'
+
