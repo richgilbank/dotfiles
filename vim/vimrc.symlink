@@ -30,6 +30,8 @@ set gcr=n:blinkon0              " stop blinking cursors
 set laststatus=2                " for powerline visiblity
 set cmdheight=2
 
+set autoread                    " reload buffers automatically
+
 set synmaxcol=200
 
 let g:Powerline_symbols = 'fancy'
@@ -215,6 +217,8 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_custom_ignore = 'build'
 let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_max_files = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
