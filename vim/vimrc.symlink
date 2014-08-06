@@ -223,6 +223,10 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
+" Snipmate
+au BufNewFile,BufRead *.scss set ft=scss.css
+au BufNewFile,BufRead *.css set ft=scss.css
+
 " Paste last yanked item, even after deleting.
 noremap <Leader>p "0p
 noremap <Leader>P "0P
