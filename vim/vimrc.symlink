@@ -145,11 +145,8 @@ nnoremap <leader>qo :copen<CR>
 " Quickfix close
 nnoremap <leader>qc :ccl<CR>
 
-" Ack
-nnoremap <leader>a :Ack 
-
-" Ack for the last search.
-nnoremap <silent> <leader>qa/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
+" Ag
+nnoremap <leader>a :Ag ""<left>
 
 " toggle last buffer
 nnoremap <leader><leader> <c-^>
