@@ -66,6 +66,7 @@ alias co='git checkout'
 alias gs='git status'
 alias pull='git pull origin'
 alias push='git push origin $(current_branch)'
+alias fpush='git push origin +$(current_branch)'
 
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
