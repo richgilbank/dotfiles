@@ -178,20 +178,8 @@ let NERDTreeShowHidden=1
 " quit NERDTree after opening a file
 let g:NERDTreeQuitOnOpen = 0
 
-" CoffeeTags 
- let g:tagbar_type_coffee = {
-  \ 'kinds' : [
-  \   'f:functions',
-  \   'o:object'
-  \ ],
-  \ 'kind2scope' : {
-  \  'f' : 'object',
-  \   'o' : 'object'
-  \},
-  \ 'sro' : ".",
-  \ 'ctagsbin' : 'coffeetags',
-  \ 'ctagsargs' : ' ',
-  \}
+" Ctags
+set tags=.tags,.gemtags
 
 "coffee compile
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
