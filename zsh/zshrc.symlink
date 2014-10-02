@@ -44,6 +44,10 @@ alias chrome='open -a "Google Chrome"'
 
 alias macvim='open -a "MacVim"'
 
+# ctags
+alias ctag-project='ctags -R -f .tags .'
+alias ctag-gems='ctags -R -f .gemtags $(bundle list --paths)'
+
 #tmux colors
 alias tmux="TERM=screen-256color-bce tmux"
 
@@ -67,6 +71,7 @@ alias gs='git status'
 alias pull='git pull origin'
 alias push='git push origin $(current_branch)'
 alias fpush='git push origin +$(current_branch)'
+alias pbranch='echo "$(current_branch)" | pbcopy'
 
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
