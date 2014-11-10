@@ -7,7 +7,7 @@ Focusing on Coffee-Script/Javascript Development
 installation
 ------------
 
-    git clone git://github.com/shanejonas/dotfiles ~/.dotfiles
+    git clone git://github.com/richgilbank/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     rake install
     vim +BundleInstall +qall
