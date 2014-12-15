@@ -34,7 +34,6 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 export PATH=~/bin:$PATH
-export PATH=/opt/boxen/homebrew/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/Applications/Eclipse/sdk/tools:$PATH
 export PATH=/Applications/Eclipse/sdk/platform-tools:$PATH
@@ -73,17 +72,7 @@ alias push='git push origin $(current_branch)'
 alias fpush='git push origin +$(current_branch)'
 alias pbranch='echo "$(current_branch)" | pbcopy'
 
-function current_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
-    ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  echo ${ref#refs/heads/}
-}
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Vagrant
 alias vu='cd ~/Code/vagrant && vagrant up && vagrant ssh'
 alias vs='cd ~/Code/vagrant && vagrant ssh'
 alias sh='cd ~/Code/vagrant/src/Shopify'
-

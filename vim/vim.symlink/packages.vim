@@ -5,7 +5,7 @@ Bundle 'ctrlp.vim'
 Bundle 'fugitive.vim'
 Bundle 'gitignore'
 Bundle 'The-NERD-tree'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/vim-snippets"

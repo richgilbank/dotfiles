@@ -39,14 +39,6 @@ task :install => [:generate_gitconfig_from_template] do
     }
   end
 
-  # Custom include for fish shell. The fish shell requires config
-  # files to be in the location of ~/.config/fish/config.fish.
-  FileUtils.mkdir_p "#{ENV['HOME']}/.config/fish"
-  linkables << { "path" => "fish/config.fish",
-    "file" => "config.fish",
-    "target" => "#{ENV['HOME']}/.config/fish/config.fish"
-  }
-
   skip_all = false
   overwrite_all = false
   backup_all = false
@@ -78,6 +70,10 @@ task :install => [:generate_gitconfig_from_template] do
   end
   `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
 
+  if `uname` == 'Darwin'
+    `./osx/set-defaults.sh`
+    `vim +BundleInstall +qall`
+  end
 end
 
 desc "Generate a gitconfig file from the template based on user input"

@@ -1,10 +1,15 @@
-# Sets reasonable OS X defaults.
-#
-# The original idea (and a couple settings) were grabbed from:
-#   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
 
-# Use AirDrop over every interface.
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+# Install homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Show the ~/Library folder
-chflags nohidden ~/Library
+# Install homebrew stuffs
+brew install git the_silver_searcher
+
+# Install fonts
+git clone https://github.com/powerline/fonts.git
+cd fonts/
+./install.sh
+cd ../ && rm -rf fonts
