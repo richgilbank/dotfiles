@@ -1,7 +1,5 @@
 Rich's dotfiles
 ==================
-Focusing on Coffee-Script/Javascript Development
-
 (My vim/zsh dotfiles, derived from Shane Jonas')[https://github.com/shanejonas/dotfiles]
 
 installation
@@ -10,14 +8,11 @@ installation
     git clone git@github.com:richgilbank/.dotfiles.git
     cd ~/.dotfiles
     rake install
-    vim +BundleInstall +qall
 
 my setup
 --------
-- Vim +vundle +powerline +vim-coffee-script +syntastic +supertab
+- Vim +vundle +airline +vim-coffee-script +syntastic +supertab
 - Zsh +oh-my-zsh
-
-Bonus: Emacs +evil-mode (vim-bindings) for the adventurous
 
 notes
 -----
