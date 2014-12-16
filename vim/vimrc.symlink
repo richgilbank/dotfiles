@@ -34,7 +34,7 @@ set autoread                    " reload buffers automatically
 
 set synmaxcol=200
 
-set guifont=Source\ Code\ Pro\ for\ Powerline
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 let g:airline_powerline_fonts = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
