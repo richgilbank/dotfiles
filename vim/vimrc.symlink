@@ -147,7 +147,7 @@ nnoremap <leader>qo :copen<CR>
 nnoremap <leader>qc :ccl<CR>
 
 " Ag
-nnoremap <leader>a :Ag ""<left>
+nnoremap <leader>a :Ag<space>
 
 " toggle last buffer
 nnoremap <leader><leader> <c-^>
