@@ -1,6 +1,7 @@
 .DS_Store
-.svn
 .tags
+.svn
+.bundle
 *~
 *.swp
 *~.nib
