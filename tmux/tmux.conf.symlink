@@ -1,0 +1,108 @@
+###########################
+#  Configuration
+###########################
+
+# use 256 term for pretty colors
+set -g default-terminal "screen-256color"
+
+# increase scroll-back history
+set -g history-limit 5000
+
+# lets use vim :)
+setw -g mode-keys vi
+
+# enable mouse
+setw -g mode-mouse on
+set -g mouse-select-pane on
+
+# decrease command delay (increases vim responsiveness)
+set -sg escape-time 1
+
+# increase repeat time for repeatable commands
+set -g repeat-time 1000
+
+# highlight window when it has new activity
+setw -g monitor-activity on
+set -g visual-activity on
+
+# re-number windows when one is closed
+set -g renumber-windows on
+
+# layouts
+set -g main-pane-width 120
+
+###########################
+#  Key Bindings
+###########################
+
+# tmux prefix
+unbind C-b
+set -g prefix C-a
+
+
+# resize panes
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# move around panes with hjkl, as one would in vim after pressing ctrl-w
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind C-h previous-window
+bind C-l next-window
+# force a reload of the config kile
+unbind r
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+###########################
+# Status Bar
+###########################
+
+# enable UTF-8 support in status bar
+set -g status-utf8 on
+
+# set refresh interval for status bar
+set -g status-interval 30
+
+# center the status bar
+set -g status-justify left
+
+# show session, window, pane in left status bar
+set -g status-left-length 40
+set -g status-left '#[fg=green]#S#[fg=blue] #I:#P#[default]'
+
+# show hostname, date, time, and battery in right status bar
+set-option -g status-right '#[fg=green]#H#[default] %m/%d/%y %I:%M\
+ #[fg=red]#(battery discharging)#[default]#(battery charging)'
+
+ ###########################
+ # Colors
+ ###########################
+
+ # color status bar
+ set -g status-bg colour235
+ set -g status-fg white
+
+ # highlight current window
+ set-window-option -g window-status-current-fg black
+ set-window-option -g window-status-current-bg green
+
+ # set color of active pane
+ set -g pane-border-fg colour233
+ set -g pane-border-bg black
+ set -g pane-active-border-fg green
+ set -g pane-active-border-bg black
+
+# clear buffer
+bind-key C send-keys -R \; clear-history
+bind-key C-k send-keys -R \; clear-history
+
+# Start windows and panes at 1, not 0
+set -g base-index 1
+set -g pane-base-index 1
+
+if-shell 'test "$(uname -s)" = Darwin' 'source-file ~/.tmux.osx.conf'
