@@ -31,6 +31,9 @@ set -g renumber-windows on
 # layouts
 set -g main-pane-width 120
 
+# disable automatic renaming of windows
+set -g allow-rename off
+
 ###########################
 #  Key Bindings
 ###########################
