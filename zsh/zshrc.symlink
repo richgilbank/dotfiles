@@ -33,11 +33,6 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 
-export PATH=~/bin:$PATH
-export PATH=/opt/local/bin:$PATH
-export PATH=/Applications/Eclipse/sdk/tools:$PATH
-export PATH=/Applications/Eclipse/sdk/platform-tools:$PATH
-export LINEMAN_AUTO_WATCH=true
 alias npmi="npm install -g"
 alias chrome='open -a "Google Chrome"'
 
@@ -51,11 +46,9 @@ alias ctag-gems='ctags -R -f .gemtags $(bundle list --paths)'
 alias tmux="TERM=screen-256color-bce tmux"
 
 # useful commands
-alias up='cd ..'
 alias pbc='pwd | pbcopy'
 alias rnpm='rm -rf node_modules && npm install'
 alias viminstall='vim +BundleInstall +qall'
-alias grunt='nocorrect grunt'
 alias ag='nocorrect ag'
 alias serve="python -m SimpleHTTPServer"
 alias jsonprint="python -mjson.tool"
