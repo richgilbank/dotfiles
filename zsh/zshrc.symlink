@@ -1,5 +1,6 @@
 export DEFAULT_USER=richgilbank
 export ZSH=$HOME/.oh-my-zsh
+export EDITOR="vim"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -60,7 +61,7 @@ alias rt='bundle exec ruby -Itest'
 # git commands
 alias co='git checkout'
 alias gs='git status'
-alias pull='git pull origin'
+alias pull='git pull origin $(current_branch)'
 alias push='git push origin $(current_branch)'
 alias fpush='git push origin +$(current_branch)'
 alias pbranch='echo "$(current_branch)" | pbcopy'
@@ -69,3 +70,6 @@ alias pbranch='echo "$(current_branch)" | pbcopy'
 alias vu='cd ~/Code/vagrant && vagrant up && vagrant ssh'
 alias vs='cd ~/Code/vagrant && vagrant ssh'
 alias sh='cd ~/Code/vagrant/src/Shopify'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

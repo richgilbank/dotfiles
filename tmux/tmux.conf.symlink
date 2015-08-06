@@ -61,6 +61,10 @@ bind C-l next-window
 unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
+# move windows left/right
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
+
 ###########################
 # Status Bar
 ###########################
