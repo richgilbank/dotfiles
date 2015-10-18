@@ -136,6 +136,10 @@ map <silent> <leader><cr> :noh<cr>
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" Temporary nvim bug:
+" https://github.com/neovim/neovim/issues/2048
+nmap <BS> <C-W>h
+
 " Map space to / (search) and c-space to ? (backgwards search)
 map <space> /
 map <c-space> ?

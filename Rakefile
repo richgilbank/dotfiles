@@ -77,12 +77,12 @@ task :install => [:generate_gitconfig_from_template] do
     `ln -s "$PWD/#{path}" "#{target}"`
   end
 
-  `vim +BundleInstall +qall`
-
   case `uname`.strip
   when 'Darwin' then puts `./osx/set-defaults.sh`
   when 'Linux' then puts `./linux/set-defaults.sh`
   end
+
+  `./common-setup.sh`
 end
 
 desc "Generate a gitconfig file from the template based on user input"

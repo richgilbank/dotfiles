@@ -11,7 +11,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # Install homebrew stuffs
 brew tap neovim/neovim
 brew install git the_silver_searcher ctags
-brew install --HEAD fish # neovim
+brew install --HEAD fish neovim
 
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish

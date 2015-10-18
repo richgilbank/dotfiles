@@ -15,32 +15,16 @@ function has_background_jobs
   if [ '1' = (jobs | wc -l | sed 's/ //g') ]; return 0; else; return 1; end;
 end
 
-function fish_prompt --description 'Write out the prompt'
-  if not set -q __fish_prompt_normal
-    set -g __fish_prompt_normal (set_color normal)
-  end
-
-  if not set -q __git_cb
-    set __git_cb ":"(set_color brown)(current_branch)(set_color normal)""
-  end
-
-  if not set -q __fish_prompt_cwd
-    set -g __fish_prompt_cwd (set_color $fish_color_cwd)
-  end
-
-  if has_background_jobs and not set -q __has_background_jobs
-    set -g __has_background_jobs (set_color $fish_color_end)' ☂ '(set_color normal)
-  else
-    set -g __has_background_jobs ''
-  end
-
-  printf '%s%s%s%s%s> ' $__fish_prompt_cwd (prompt_pwd) $__fish_prompt_normal $__git_cb $__has_background_jobs
+function fish_prompt
+  python ~/Code/dotfiles/powerline-shell/powerline-shell.py $status --shell bare ^/dev/null
 end
 
 ###################
 # Git
 ###################
 
+alias ga 'git add'
+alias gc 'git commit'
 alias gs 'git status'
 alias gd 'git diff'
 alias co 'git checkout'
@@ -66,18 +50,28 @@ alias ctag-project 'ctags -R -f .tags .'
 alias ctag-gems 'ctags -R -f .gemtags (bundle list --paths)'
 
 ###################
-# Utilities
-###################
-
-alias serve 'python -m SimpleHTTPServer'
-
-###################
 # Rubby
 ###################
 
 alias bi 'bundle install'
 alias be 'bundle exec'
 alias rt 'bundle exec ruby -Itest'
+
+###################
+# Vagrant
+###################
+
+alias vu 'cd ~/Code/vagrant; and vagrant up'
+alias vm 'cd ~/Code/vagrant; and vagrant mosh'
+alias vs 'cd ~/Code/vagrant; and vagrant ssh'
+
+###################
+# Utilities
+###################
+
+alias serve 'python -m SimpleHTTPServer'
+alias vim 'nvim'
+
 
 # Heroku, RVM
 set -x PATH "/usr/local/heroku/bin" $PATH "$HOME/.rvm/bin"
