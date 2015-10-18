@@ -1,3 +1,4 @@
+echo "Starting common-startup"
 vim +BundleInstall +qall
 
 # Install fonts

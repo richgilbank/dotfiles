@@ -164,7 +164,7 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 ###############################################################################
 
 # Install the Solarized Dark theme for iTerm
-open "../iterm/Solarized Dark.itermcolors"
+open "./iterm/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
