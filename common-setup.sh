@@ -3,9 +3,10 @@ vim +BundleInstall +qall
 
 # Install fonts
 git clone https://github.com/powerline/fonts.git
-cd fonts/
+cd fonts
 ./install.sh
-cd ../ && rm -rf fonts
+cd ../
+rm -rf fonts
 
 # Install powerline
 cd powerline-shell
