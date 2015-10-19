@@ -1,3 +1,5 @@
+#! /bin/sh
+
 echo "Starting common-startup"
 vim +BundleInstall +qall
 
