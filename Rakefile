@@ -82,7 +82,9 @@ task :install => [:generate_gitconfig_from_template] do
   when 'Linux' then puts `./linux/set-defaults.sh`
   end
 
+  puts 'Loading common-setup'
   puts `./common-setup.sh`
+  puts 'Done'
 end
 
 desc "Generate a gitconfig file from the template based on user input"

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Starting OSX set-defaults"
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -16,11 +18,7 @@ brew install --HEAD fish neovim
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 
-# Install fonts
-git clone https://github.com/powerline/fonts.git
-cd fonts/
-./install.sh
-cd ../ && rm -rf fonts
+echo "Shell set; setting OSX defaults"
 
 ###############################################################################
 # General UI/UX                                                               #

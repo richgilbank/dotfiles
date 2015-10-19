@@ -13,3 +13,4 @@ cd powerline-shell
 python ./install.py
 ln -s (pwd)/powerline-shell.py ~/powerline-shell.py
 cd ..
+echo "Completed common-setup"
