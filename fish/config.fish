@@ -1,6 +1,6 @@
 # vi: set ft=sh :
 
-set -x EDITOR (which vim)
+set -x EDITOR (which nvim)
 set -x FISH_CONFIG (readlink "$HOME/.config/fish/config.fish")
 
 function fish_user_key_bindings
