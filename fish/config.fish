@@ -16,7 +16,7 @@ function has_background_jobs
 end
 
 function fish_prompt
-  python ~/Code/dotfiles/powerline-shell/powerline-shell.py $status --shell bare ^/dev/null
+  python ~/powerline-shell.py $status --shell bare ^/dev/null
 end
 
 ###################
