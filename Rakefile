@@ -28,6 +28,7 @@
 
 require 'rake'
 require 'fileutils'
+require 'open3'
 
 desc "Hook our dotfiles into system-standard positions."
 task :install => [:generate_gitconfig_from_template] do
@@ -77,13 +78,23 @@ task :install => [:generate_gitconfig_from_template] do
     `ln -s "$PWD/#{path}" "#{target}"`
   end
 
-  case `uname`.strip
-  when 'Darwin' then puts `./osx/set-defaults.sh`
-  when 'Linux' then puts `./linux/set-defaults.sh`
+  file = case `uname`.strip
+  when 'Darwin' then './osx/set-defaults.sh'
+  when 'Linux' then './linux/set-defaults.sh'
+  end
+
+  Open3.popen3(file) do |stdin, stdout, stderr, thread|
+    while line = stdout.gets
+      puts line
+    end
   end
 
   puts 'Loading common-setup'
-  puts `./common-setup.sh`
+  Open3.popen3('./common-setup.sh') do |stdin, stdout, stderr, thread|
+    while line = stdout.gets
+      puts line
+    end
+  end
   puts 'Done'
 end
 
