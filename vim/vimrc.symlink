@@ -15,7 +15,7 @@ set fillchars+=stl:\ ,stlnc:\
 
 filetype plugin indent on
 
-call togglebg#map("<F5>")
+" call togglebg#map("<F5>")
 
 " Some view/ux related stuff
 set background=dark

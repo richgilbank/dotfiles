@@ -20,6 +20,8 @@ cd fonts
 cd ../
 rm -rf fonts
 
+ln -s "$PWD/.vimrc" "$PWD/.nvimrc"
+
 # Install powerline
 # echo "Installing powerline-shell"
 # cd powerline-shell
