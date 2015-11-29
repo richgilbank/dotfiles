@@ -24,7 +24,7 @@ echo "Brew installed; setting OSX defaults"
 echo "General UI/UX settings"
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+nvram SystemAudioVolume=" "
 
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
@@ -69,6 +69,11 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Maybe one of these will work for 3 finger drag?
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
 ###############################################################################
 # Screen                                                                      #
@@ -160,7 +165,7 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 echo "Spotlight settings"
 
 # Hide Spotlight tray-icon (and subsequent helper)
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #

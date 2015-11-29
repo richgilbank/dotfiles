@@ -8,7 +8,7 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until this file has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-sudo chsh -s /bin/zsh
+chsh -s /bin/zsh
 
 vim +BundleInstall +qall
 
@@ -21,9 +21,9 @@ cd ../
 rm -rf fonts
 
 # Install powerline
-echo "Installing powerline-shell"
-cd powerline-shell
-python ./install.py
-ln -s $(pwd)/powerline-shell.py ~/powerline-shell.py
-cd ..
-echo "Completed common-setup"
+# echo "Installing powerline-shell"
+# cd powerline-shell
+# python ./install.py
+# ln -s $(pwd)/powerline-shell.py ~/powerline-shell.py
+# cd ..
+# echo "Completed common-setup"

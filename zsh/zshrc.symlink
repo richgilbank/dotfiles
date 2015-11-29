@@ -28,7 +28,7 @@ bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew npm osx git vi-mode zsh-syntax-highlighting ruby)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 

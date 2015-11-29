@@ -44,6 +44,8 @@ task :install => [:generate_gitconfig_from_template] do
   overwrite_all = false
   backup_all = false
 
+  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
+
   linkables.each do |linkable|
     overwrite = false
     backup = false
@@ -70,8 +72,6 @@ task :install => [:generate_gitconfig_from_template] do
     `ln -s "$PWD/#{path}" "#{target}"`
   end
 
-  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
-
   file = case `uname`.strip
     when 'Darwin' then './osx/set-defaults.sh'
     when 'Linux' then './linux/set-defaults.sh'
@@ -86,6 +86,7 @@ task :install => [:generate_gitconfig_from_template] do
 
   puts "Loading common setup"
   Open3.popen3('./common-setup.sh') do |stdin, stdout, stderr, thread|
+    puts "ERR: " << stderr
     while line = stdout.gets
       puts line
     end
