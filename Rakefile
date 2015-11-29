@@ -82,13 +82,18 @@ task :install => [:generate_gitconfig_from_template] do
     while line = stdout.gets
       puts line
     end
+    while line = stderr.gets
+      puts "ERROR: " << line
+    end
   end
 
   puts "Loading common setup"
   Open3.popen3('./common-setup.sh') do |stdin, stdout, stderr, thread|
-    puts "ERR: " << stderr
     while line = stdout.gets
       puts line
+    end
+    while line = stderr.gets
+      puts "ERROR: " << line
     end
   end
 
