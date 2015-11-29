@@ -18,11 +18,6 @@ installation
       * Profiles > Text > Non-ASCII Font > Change Font > "Source Code Pro for Powerline"
     if things didn't all work, you may have to run './common-setup.sh' manually
 
-my setup
---------
-- Vim +vundle +airline +vim-coffee-script +syntastic +supertab
-- Zsh +oh-my-zsh
-
 notes
 -----
 
@@ -39,8 +34,3 @@ notes
 
 - **.localrc**: Create a file called `.localrc` to store any data that you do
   not want committed to the git repository (secrets, etc.).
-
-system
-------
-
-OS X, with the [Homebrew package manager](http://mxcl.github.com/homebrew/).
