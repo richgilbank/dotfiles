@@ -30,6 +30,9 @@ require 'rake'
 require 'fileutils'
 require 'open3'
 
+SYMLINK_AFTER_SETUP = ['vim/vimrc.symlink']
+FOLLOW_UP_SYMLINKS = []
+
 desc "Hook our dotfiles into system-standard positions."
 task :install => [:generate_gitconfig_from_template] do
   linkables = Dir.glob('*/**{.symlink}').map! do |linkable|
@@ -69,7 +72,11 @@ task :install => [:generate_gitconfig_from_template] do
       FileUtils.rm_rf(target) if overwrite || overwrite_all
       `mv "#{target}" "#{target}.backup"` if backup || backup_all
     end
-    `ln -s "$PWD/#{path}" "#{target}"`
+    if SYMLINK_AFTER_SETUP.include?(path)
+      FOLLOW_UP_SYMLINKS << {path: path, target: target}
+    else
+      `ln -s "$PWD/#{path}" "#{target}"`
+    end
   end
 
   file = case `uname`.strip
@@ -95,6 +102,10 @@ task :install => [:generate_gitconfig_from_template] do
     while line = stderr.gets
       puts "ERROR: " << line
     end
+  end
+
+  FOLLOW_UP_SYMLINKS.each do |linkable|
+    `ln -s "$PWD/#{linkable[:path]}" "#{linkable[:target]}"`
   end
 
   puts 'Done'
