@@ -12,6 +12,11 @@ installation
     git clone git@github.com:richgilbank/dotfiles.git
     cd dotfiles
     rake install
+    set your iterm colors and fonts
+      * Profiles > Colors > Load Preset > Solarized Dark
+      * Profiles > Text > Regular Font > Change Font > "Source Code Pro for Powerline"
+      * Profiles > Text > Non-ASCII Font > Change Font > "Source Code Pro for Powerline"
+    if things didn't all work, you may have to run './common-setup.sh' manually
 
 my setup
 --------
