@@ -28,6 +28,7 @@
 
 require 'rake'
 require 'fileutils'
+require 'open3'
 
 desc "Hook our dotfiles into system-standard positions."
 task :install => [:generate_gitconfig_from_template] do
@@ -68,13 +69,30 @@ task :install => [:generate_gitconfig_from_template] do
     end
     `ln -s "$PWD/#{path}" "#{target}"`
   end
-  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
 
+  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
   `vim +BundleInstall +qall`
 
-  if `uname` == 'Darwin'
-    `./osx/set-defaults.sh`
+  file = case `uname`.strip
+    when 'Darwin' then './osx/set-defaults.sh'
+    when 'Linux' then './linux/set-defaults.sh'
   end
+
+  puts "Loading #{`uname`.strip}-specific settings"
+  Open3.popen3(file) do |stdin, stdout, stderr, thread|
+    while line = stdout.gets
+      puts line
+    end
+  end
+
+  puts "Loading common setup"
+  Open3.popen3('./common-setup.sh') do |stdin, stdout, stderr, thread|
+    while line = stdout.gets
+      puts line
+    end
+  end
+
+  puts 'Done'
 end
 
 desc "Generate a gitconfig file from the template based on user input"

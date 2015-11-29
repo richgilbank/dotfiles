@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# Flush DNS cache on OS X.
-
-dscacheutil -flushcache
