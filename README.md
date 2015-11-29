@@ -1,22 +1,18 @@
-files with dots
+Rich's dotfiles
 ==================
-My neovim/fish dotfiles, derived from / inspired by these people:
-
-- [Shane Jonas](https://github.com/shanejonas/dotfiles)
-- [Michael Russo](https://github.com/mjrusso/dotfiles)
-- [Zach Holman](https://github.com/holman/dotfiles)
-- [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
+(My vim/zsh dotfiles, derived from Shane Jonas')[https://github.com/shanejonas/dotfiles]
 
 installation
 ------------
 
-    git clone git@github.com:richgilbank/dotfiles.git
-    cd dotfiles
+    git clone git@github.com:richgilbank/.dotfiles.git
+    cd ~/.dotfiles
     rake install
 
 my setup
 --------
-- TBD
+- Vim +vundle +airline +vim-coffee-script +syntastic +supertab
+- Zsh +oh-my-zsh
 
 notes
 -----
@@ -39,3 +35,13 @@ system
 ------
 
 OS X, with the [Homebrew package manager](http://mxcl.github.com/homebrew/).
+
+thanks
+------
+
+These dotfiles are heavily based on [Zach Holman's dotfiles](https://github.com/holman/dotfiles).
+
+Also includes code from the following dotfiles:
+
+- [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
+- [Andrew Sardone](https://github.com/andrewsardone/dotfiles)

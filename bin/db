@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# Quick shortcut to start and stop database servers.
+#
+# USAGE:
+#
+#   $ db [:database] [start|stop]
+#
+# EXAMPLES:
+#
+#   $ db postgres start
+#   # => start postgres
+#
+#   $ db postgres stop
+#   # => stop postgres
+
+if test "$2" == "start"; then
+
+  if test "$1" == "postgres"; then
+    pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+  elif test "$1" == "mysql"; then
+    mysql.server start
+  elif test "$1" == "couchdb"; then
+    couchdb
+  elif test "$1" == "mongodb"; then
+    mongod run --config /usr/local/etc/mongod.conf
+  else
+    echo "unknown database"
+  fi
+
+elif test "$2" == "stop"; then
+
+  if test "$1" == "postgres"; then
+    pg_ctl -D /usr/local/var/postgres stop -s -m fast
+  elif test "$1" == "mysql"; then
+    mysql.server stop
+  else
+    echo "unknown database"
+  fi
+
+fi

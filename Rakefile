@@ -28,7 +28,6 @@
 
 require 'rake'
 require 'fileutils'
-require 'open3'
 
 desc "Hook our dotfiles into system-standard positions."
 task :install => [:generate_gitconfig_from_template] do
@@ -39,14 +38,6 @@ task :install => [:generate_gitconfig_from_template] do
       "target" => "#{ENV["HOME"]}/.#{file}"
     }
   end
-
-  # Custom include for fish shell. The fish shell requires config
-  # files to be in the location of ~/.config/fish/config.fish.
-  FileUtils.mkdir_p "#{ENV['HOME']}/.config/fish"
-  linkables << { "path" => "fish/config.fish",
-    "file" => "config.fish",
-    "target" => "#{ENV['HOME']}/.config/fish/config.fish"
-  }
 
   skip_all = false
   overwrite_all = false
@@ -77,25 +68,13 @@ task :install => [:generate_gitconfig_from_template] do
     end
     `ln -s "$PWD/#{path}" "#{target}"`
   end
+  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
 
-  file = case `uname`.strip
-  when 'Darwin' then './osx/set-defaults.sh'
-  when 'Linux' then './linux/set-defaults.sh'
-  end
+  `vim +BundleInstall +qall`
 
-  Open3.popen3(file) do |stdin, stdout, stderr, thread|
-    while line = stdout.gets
-      puts line
-    end
+  if `uname` == 'Darwin'
+    `./osx/set-defaults.sh`
   end
-
-  puts 'Loading common-setup'
-  Open3.popen3('./common-setup.sh') do |stdin, stdout, stderr, thread|
-    while line = stdout.gets
-      puts line
-    end
-  end
-  puts 'Done'
 end
 
 desc "Generate a gitconfig file from the template based on user input"

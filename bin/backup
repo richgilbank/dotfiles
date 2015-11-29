@@ -1,0 +1,37 @@
+#!/bin/sh
+IFS=$'\n'
+
+# Based on Zach Holman's backup script.
+# (https://github.com/holman/dotfiles/blob/master/bin/backup)
+#
+# Copies a few key files to a mounted partition.
+#
+# Used to create an offsite backup with critical nonreplaceable data.
+#
+# Create an encrypted sparsebundle on a USB drive and backup to it.
+
+# Your sparsebundle. Mine is named "mjrbackup".
+sparsebundle="/Volumes/mjrbackup/backup.sparsebundle"
+
+# Your destination. My sparsebundle mounts to "backup".
+backup_location="/Volumes/backup"
+
+# Directories to backup. Recursive, implied home (~) location.
+directories=(
+  Development
+  Documents
+  "Library/Application Support/Adium 2.0"
+  Movies
+  Music
+  Pictures
+)
+
+hdiutil attach -noverify $sparsebundle
+
+for directory in ${directories[@]}
+  do
+    rsync -avh --progress --delete ~/$directory $backup_location
+done
+
+hdiutil detach $backup_location
+diskutil eject mjrbackup
