@@ -71,7 +71,6 @@ task :install => [:generate_gitconfig_from_template] do
   end
 
   `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
-  `vim +BundleInstall +qall`
 
   file = case `uname`.strip
     when 'Darwin' then './osx/set-defaults.sh'

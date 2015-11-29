@@ -5,9 +5,10 @@ echo "Starting OSX set-defaults"
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &# Install homebrew
+# Keep-alive: update existing `sudo` time stamp until this file has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Install homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install homebrew stuffs
@@ -20,6 +21,7 @@ echo "Brew installed; setting OSX defaults"
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
+echo "General UI/UX settings"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -45,6 +47,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
+echo "Trackpad, mouse, keyboard, Bluetooth and input settings"
 
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -70,6 +73,7 @@ defaults write NSGlobalDomain KeyRepeat -int 0
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
+echo "Screen settings"
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -77,6 +81,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
+echo "Finder settings"
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
@@ -114,6 +119,7 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
+echo "Dock, dashboard and hot corners settings"
 
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
@@ -130,7 +136,7 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dock autohide -bool true
 
 # Hover for 5 seconds before showing the dock
-defaults write com.apple.Dock autohide-delay -float 5
+defaults write com.apple.Dock autohide-delay -float 3
 
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 16
@@ -138,6 +144,7 @@ defaults write com.apple.dock tilesize -int 16
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
+echo "Safari and Webkit settings"
 
 # Enable the Develop menu and the Web Inspector in Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
@@ -150,6 +157,7 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
+echo "Spotlight settings"
 
 # Hide Spotlight tray-icon (and subsequent helper)
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
@@ -157,6 +165,7 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 ###############################################################################
 # Terminal & iTerm 2                                                          #
 ###############################################################################
+echo "Terminal and iTerm2  settings"
 
 # Install the Solarized Dark theme for iTerm
 open "./iterm/Solarized Dark.itermcolors"
@@ -167,6 +176,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
+echo "Time Machine settings"
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
@@ -174,8 +184,10 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
+echo "Restarting affected applications"
 
 for app in "Activity Monitor" "cfprefsd" "Dock" "Finder" "Safari" "SystemUIServer" "Terminal"; do
   killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+echo "Doing some things. Hang on a couple of minutes."
