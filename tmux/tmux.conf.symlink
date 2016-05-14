@@ -11,9 +11,12 @@ set -g history-limit 5000
 # lets use vim :)
 setw -g mode-keys vi
 
-# enable mouse
-setw -g mode-mouse on
-set -g mouse-select-pane on
+# enable mouse to select panels
+set -g mouse on
+
+# enable scrolling
+bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
+bind -n WheelDownPane select-pane -t= \;                 send-keys -M
 
 # decrease command delay (increases vim responsiveness)
 set -sg escape-time 1

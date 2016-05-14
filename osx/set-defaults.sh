@@ -13,7 +13,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 # Install homebrew stuffs
 brew tap neovim/neovim
-brew install git the_silver_searcher ctags
+brew install git the_silver_searcher ctags tmux
 brew install --HEAD neovim
 
 echo "Brew installed; setting OSX defaults"
