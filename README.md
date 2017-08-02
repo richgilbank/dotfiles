@@ -4,7 +4,7 @@ My vim/zsh dotfiles, derived from / inspired by these people:
 - [Shane Jonas](https://github.com/shanejonas/dotfiles)
 - [Michael Russo](https://github.com/mjrusso/dotfiles)
 - [Zach Holman   ](https://github.com/holman/dotfiles)
-- [Mathias Bynens](https://git   hub.com/mathiasbynens/dotfiles)
+- [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
 
 installation
 ------------
