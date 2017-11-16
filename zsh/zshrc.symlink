@@ -51,11 +51,11 @@ alias pbc='pwd | pbcopy'
 alias rnpm='rm -rf node_modules && npm install'
 alias viminstall='vim +BundleInstall +qall'
 alias ag='nocorrect ag'
-alias serve="python -m SimpleHTTPServer"
+alias serve="http-server ./"
 alias jsonprint="python -mjson.tool"
 alias bi='bundle check || bundle install'
 alias be='bundle exec'
-alias ip='ifconfig | grep "inet 192.168"'
+alias ip='ifconfig en0 | grep "inet "'
 alias rt='bundle exec ruby -Itest'
 
 # git commands

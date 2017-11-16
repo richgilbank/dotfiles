@@ -16,6 +16,9 @@ brew tap neovim/neovim
 brew install git the_silver_searcher ctags tmux reattach-to-user-namespace
 brew install --HEAD neovim
 
+echo "Installing NVM"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+
 echo "Brew installed; setting OSX defaults"
 
 ###############################################################################
