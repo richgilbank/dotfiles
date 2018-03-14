@@ -80,3 +80,7 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools

@@ -13,7 +13,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 # Install homebrew stuffs
 brew tap neovim/neovim
-brew install git the_silver_searcher ctags tmux reattach-to-user-namespace
+brew install git the_silver_searcher ctags tmux reattach-to-user-namespace wifi-password
 brew install --HEAD neovim
 
 echo "Installing NVM"

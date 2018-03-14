@@ -181,16 +181,8 @@ let g:NERDTreeQuitOnOpen = 0
 " Ctags
 set tags=.tags,.gemtags
 
-"coffee compile
-vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
-map <leader>c :CoffeeCompile<CR>
-
 "autoclose
 nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
-
-
-" c:number to jump coffee/js
-command -nargs=1 C CoffeeCompile | :<args>
 
 " CtrlP
 let g:ctrlp_extensions = ['tag']
@@ -215,3 +207,6 @@ au BufNewFile,BufRead *.css set ft=scss.css
 " Paste last yanked item, even after deleting.
 noremap <Leader>p "0p
 noremap <Leader>P "0P
+
+" JSX
+let g:jsx_ext_required=0

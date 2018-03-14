@@ -1,6 +1,3 @@
-Bundle 'ack.vim'
-Bundle 'cocoa.vim'
-Bundle 'vim-coffee-script'
 Bundle 'ctrlp.vim'
 Bundle 'fugitive.vim'
 Bundle 'The-NERD-tree'
