@@ -42,6 +42,12 @@ task :install => [:generate_gitconfig_from_template] do
       "target" => "#{ENV["HOME"]}/.#{file}"
     }
   end
+  # Doesn't go into home directory:
+  linkables << {
+    path: "fish/",
+    file: "config.fish",
+    target: "#{ENV["HOME"]}/.config/fish"
+  }
 
   skip_all = false
   overwrite_all = false

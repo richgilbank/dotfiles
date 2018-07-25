@@ -1,0 +1,1 @@
+/Users/richgilbank/.local/share/omf/themes/agnoster/fish_prompt.fish
