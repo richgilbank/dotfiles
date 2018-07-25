@@ -86,6 +86,10 @@ task :install => [:generate_gitconfig_from_template] do
     end
   end
 
+  FOLLOW_UP_SYMLINKS.each do |linkable|
+    `ln -s "$PWD/#{linkable[:path]}" "#{linkable[:target]}"`
+  end
+
   file = case `uname`.strip
     when 'Darwin' then './osx/set-defaults.sh'
     when 'Linux' then './linux/set-defaults.sh'
@@ -109,10 +113,6 @@ task :install => [:generate_gitconfig_from_template] do
     while line = stderr.gets
       puts "ERROR: " << line
     end
-  end
-
-  FOLLOW_UP_SYMLINKS.each do |linkable|
-    `ln -s "$PWD/#{linkable[:path]}" "#{linkable[:target]}"`
   end
 
   `pip3 install powerline-shell`
