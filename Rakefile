@@ -44,16 +44,17 @@ task :install => [:generate_gitconfig_from_template] do
   end
   # Doesn't go into home directory:
   linkables << {
-    path: "fish/",
-    file: "config.fish",
-    target: "#{ENV["HOME"]}/.config/fish"
+    "path" => "fish/",
+    "file" => "fish/",
+    "target" => "#{ENV["HOME"]}/.config/fish"
   }
 
   skip_all = false
   overwrite_all = false
   backup_all = false
 
-  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
+  # `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
+  `mkdir -p ~/.config`
 
   linkables.each do |linkable|
     overwrite = false
@@ -113,6 +114,10 @@ task :install => [:generate_gitconfig_from_template] do
   FOLLOW_UP_SYMLINKS.each do |linkable|
     `ln -s "$PWD/#{linkable[:path]}" "#{linkable[:target]}"`
   end
+
+  `pip3 install powerline-shell`
+  `curl -L https://get.oh-my.fish | fish`
+  `omf install agnoster`
 
   puts 'Done'
 end
