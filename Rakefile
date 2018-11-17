@@ -53,7 +53,6 @@ task :install => [:generate_gitconfig_from_template] do
   overwrite_all = false
   backup_all = false
 
-  # `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
   `mkdir -p ~/.config`
 
   linkables.each do |linkable|

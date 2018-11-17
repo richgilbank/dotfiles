@@ -19,14 +19,3 @@ cd fonts
 ./install.sh
 cd ../
 rm -rf fonts
-
-# ln -s "$HOME/.vimrc" "$HOME/.nvimrc"
-# ln -s "$HOME/.vim" "$HOME/.nvim"
-
-# Install powerline
-# echo "Installing powerline-shell"
-# cd powerline-shell
-# python ./install.py
-# ln -s $(pwd)/powerline-shell.py ~/powerline-shell.py
-# cd ..
-# echo "Completed common-setup"

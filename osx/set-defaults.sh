@@ -13,11 +13,11 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 # Install homebrew stuffs
 brew tap neovim/neovim
-brew install git the_silver_searcher ctags tmux reattach-to-user-namespace wifi-password
+brew install git the_silver_searcher ctags tmux wifi-password
 brew install --HEAD neovim
 
 echo "Installing NVM"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 echo "Brew installed; setting OSX defaults"
 
