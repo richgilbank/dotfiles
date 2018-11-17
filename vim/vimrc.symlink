@@ -18,8 +18,13 @@ filetype plugin indent on
 call togglebg#map("<F5>")
 
 " Some view/ux related stuff
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
+
+set termguicolors               " enable true colors support"
+let ayucolor="mirage"           " for mirage version of theme"
+colorscheme ayu
+
 set ruler                       " show the cursor position all the time
 set number                      " show line numbers
 set cursorline                  " draw a line on the same as the cursor position

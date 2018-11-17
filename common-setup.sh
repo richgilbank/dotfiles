@@ -13,9 +13,4 @@ chsh -s /usr/local/bin/fish
 vim +BundleInstall +qall
 
 # Install fonts
-echo "Installing powerline patched fonts"
-git clone https://github.com/powerline/fonts.git
-cd fonts
-./install.sh
-cd ../
-rm -rf fonts
+cp iterm/Roboto\ Mono\ for\ Powerline.ttf /Library/Fonts

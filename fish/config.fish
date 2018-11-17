@@ -31,6 +31,10 @@ function ...
   cd ../..
 end
 
+function vim
+  nvim $argv
+end
+
 function restart-nginx
   # https://www.nginx.com/resources/wiki/start/topics/tutorials/commandline/
   # config is in /usr/local/etc/nginx

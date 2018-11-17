@@ -53,7 +53,8 @@ task :install => [:generate_gitconfig_from_template] do
   overwrite_all = false
   backup_all = false
 
-  `mkdir -p ~/.config`
+  `mkdir ~/.config`
+  `mkdir ~/.config/nvim`
 
   linkables.each do |linkable|
     overwrite = false
@@ -88,6 +89,8 @@ task :install => [:generate_gitconfig_from_template] do
   FOLLOW_UP_SYMLINKS.each do |linkable|
     `ln -s "$PWD/#{linkable[:path]}" "#{linkable[:target]}"`
   end
+
+  `ln -s $PWD/vim/vimrc.symlink ~/.config/nvim/init.vim`
 
   file = case `uname`.strip
     when 'Darwin' then './osx/set-defaults.sh'
