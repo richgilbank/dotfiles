@@ -1,0 +1,1 @@
+/Users/richgilbank/.config/fisherman/menu/menu.fish

@@ -7,6 +7,10 @@ function fish_user_key_bindings
   fish_vi_key_bindings
 end
 
+function git --wraps hub --description 'Alias for hub, which wraps git to provide extra functionality with GitHub.'
+    hub $argv
+end
+
 function current_branch
   echo (git branch ^/dev/null | grep \* | sed 's/* //')
 end
@@ -25,6 +29,12 @@ end
 
 function ...
   cd ../..
+end
+
+function restart-nginx
+  # https://www.nginx.com/resources/wiki/start/topics/tutorials/commandline/
+  # config is in /usr/local/etc/nginx
+  sudo nginx -s reload
 end
 
 ###################
@@ -81,6 +91,7 @@ alias serve 'python -m SimpleHTTPServer'
 # alias vim 'nvim'
 
 
+# nvm use default
 # Heroku, RVM
 # set -x PATH "/usr/local/heroku/bin" $PATH "$HOME/.rvm/bin"
 # NVM

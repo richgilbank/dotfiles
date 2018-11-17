@@ -1,0 +1,1 @@
+/Users/richgilbank/.config/fisherman/fnm/conf.d/fnm.fish
