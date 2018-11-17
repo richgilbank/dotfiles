@@ -1,87 +1,87 @@
-export DEFAULT_USER=richgilbank
-export ZSH=$HOME/.oh-my-zsh
-export EDITOR="vim"
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-export ZSH_THEME="agnoster"
-
-setopt APPEND_HISTORY
-setopt EXTENDED_HISTORY
-setopt INC_APPEND_HISTORY
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt NO_HIST_BEEP
-setopt SHARE_HISTORY
-setopt HIST_VERIFY
-
-#search backwards and forwards with a pattern
-bindkey -M vicmd '/' history-incremental-pattern-search-backward
-bindkey -M vicmd '?' history-incremental-pattern-search-forward
-
-# set up for insert mode too
-bindkey -M viins '^R' history-incremental-pattern-search-backward
-bindkey -M viins '^F' history-incremental-pattern-search-forward
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
-
-source $ZSH/oh-my-zsh.sh
-
-export LANG=en_US.UTF-8
-
-alias npmi="npm install -g"
-alias chrome='open -a "Google Chrome"'
-
-alias macvim='open -a "MacVim"'
-
-# ctags
-alias ctag-project='ctags -R -f .tags .'
-alias ctag-gems='ctags -R -f .gemtags $(bundle list --paths)'
-
-#tmux colors
-alias tmux="TERM=screen-256color-bce tmux"
-
-# useful commands
-alias pbc='pwd | pbcopy'
-alias rnpm='rm -rf node_modules && npm install'
-alias viminstall='vim +BundleInstall +qall'
-alias ag='nocorrect ag'
-alias jsonprint="python -mjson.tool"
-alias bi='bundle check || bundle install'
-alias be='bundle exec'
-alias ip='ifconfig en0 | grep "inet "'
-alias rt='bundle exec ruby -Itest'
-
-# git commands
-alias co='git checkout'
-alias gs='git status'
-alias pull='git pull origin $(current_branch)'
-alias push='git push origin $(current_branch)'
-alias fpush='git push origin +$(current_branch)'
-alias pbranch='echo "$(current_branch)" | pbcopy'
-
-# Vagrant
-alias vu='cd ~/Code/vagrant && vagrant up && vagrant ssh'
-alias vs='cd ~/Code/vagrant && vagrant ssh'
-alias sh='cd ~/Code/vagrant/src/Shopify'
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$ANDROID_HOME/emulator:$PATH
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# export DEFAULT_USER=richgilbank
+# export ZSH=$HOME/.oh-my-zsh
+# export EDITOR="vim"
+#
+# # Set name of the theme to load.
+# # Look in ~/.oh-my-zsh/themes/
+# # Optionally, if you set this to "random", it'll load a random theme each
+# # time that oh-my-zsh is loaded.
+# export ZSH_THEME="agnoster"
+#
+# setopt APPEND_HISTORY
+# setopt EXTENDED_HISTORY
+# setopt INC_APPEND_HISTORY
+# setopt HIST_FIND_NO_DUPS
+# setopt HIST_IGNORE_ALL_DUPS
+# setopt HIST_IGNORE_SPACE
+# setopt NO_HIST_BEEP
+# setopt SHARE_HISTORY
+# setopt HIST_VERIFY
+#
+# #search backwards and forwards with a pattern
+# bindkey -M vicmd '/' history-incremental-pattern-search-backward
+# bindkey -M vicmd '?' history-incremental-pattern-search-forward
+#
+# # set up for insert mode too
+# bindkey -M viins '^R' history-incremental-pattern-search-backward
+# bindkey -M viins '^F' history-incremental-pattern-search-forward
+#
+# # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# # Example format: plugins=(rails git textmate ruby lighthouse)
+# plugins=(git vi-mode)
+#
+# source $ZSH/oh-my-zsh.sh
+#
+# export LANG=en_US.UTF-8
+#
+# alias npmi="npm install -g"
+# alias chrome='open -a "Google Chrome"'
+#
+# alias macvim='open -a "MacVim"'
+#
+# # ctags
+# alias ctag-project='ctags -R -f .tags .'
+# alias ctag-gems='ctags -R -f .gemtags $(bundle list --paths)'
+#
+# #tmux colors
+# alias tmux="TERM=screen-256color-bce tmux"
+#
+# # useful commands
+# alias pbc='pwd | pbcopy'
+# alias rnpm='rm -rf node_modules && npm install'
+# alias viminstall='vim +BundleInstall +qall'
+# alias ag='nocorrect ag'
+# alias jsonprint="python -mjson.tool"
+# alias bi='bundle check || bundle install'
+# alias be='bundle exec'
+# alias ip='ifconfig en0 | grep "inet "'
+# alias rt='bundle exec ruby -Itest'
+#
+# # git commands
+# alias co='git checkout'
+# alias gs='git status'
+# alias pull='git pull origin $(current_branch)'
+# alias push='git push origin $(current_branch)'
+# alias fpush='git push origin +$(current_branch)'
+# alias pbranch='echo "$(current_branch)" | pbcopy'
+#
+# # Vagrant
+# alias vu='cd ~/Code/vagrant && vagrant up && vagrant ssh'
+# alias vs='cd ~/Code/vagrant && vagrant ssh'
+# alias sh='cd ~/Code/vagrant/src/Shopify'
+#
+# ### Added by the Heroku Toolbelt
+# export PATH="/usr/local/heroku/bin:$PATH"
+#
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+# [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+# export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+#
+# export ANDROID_HOME=$HOME/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH=$ANDROID_HOME/emulator:$PATH
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
