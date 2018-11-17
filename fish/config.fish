@@ -35,6 +35,10 @@ function vim
   nvim $argv
 end
 
+function viminstall
+  vim +BundleInstall +qall
+end
+
 function restart-nginx
   # https://www.nginx.com/resources/wiki/start/topics/tutorials/commandline/
   # config is in /usr/local/etc/nginx

@@ -1,6 +1,6 @@
-syntax enable
-set nocompatible               " be iMproved
-filetype off                   " required!
+" syntax enable
+" set nocompatible               " be iMproved
+" filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -79,10 +79,6 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 set cc=120                       " set colorcolumn 80 to visualize 80th column
 
-" MacVim
-set guioptions-=L
-set guioptions-=r
-
 set wildmenu
 set wildmode=list:longest,full
 
@@ -100,8 +96,6 @@ if has("autocmd")
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 
   au BufRead,BufNewFile coffee setf coffee
-  au BufRead,BufNewFile Jakefile setf javascript
-  au BufRead,BufNewFile [Vv]olofile setf javascript
   au BufNewFile,BufRead *.jst set ft=html
   au BufNewFile,BufRead *.eco set ft=html
   au BufNewFile,BufRead *.mustache set ft=html
@@ -197,13 +191,6 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
-" Snipmate
-au BufNewFile,BufRead *.scss set ft=scss.css
-au BufNewFile,BufRead *.css set ft=scss.css
 
 " Paste last yanked item, even after deleting.
 noremap <Leader>p "0p
