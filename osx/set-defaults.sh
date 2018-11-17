@@ -177,7 +177,8 @@ echo "Terminal and iTerm2  settings"
 
 # Install the Solarized Dark theme for iTerm
 # open "./iterm/Solarized Dark.itermcolors"
-open "./iterm/ayu-mirage.itermcolors"
+# open "./iterm/ayu-mirage.itermcolors"
+open "./iterm/rich.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
