@@ -19,6 +19,7 @@ filetype plugin indent on
 set termguicolors               " enable true colors support"
 let ayucolor="mirage"           " for mirage version of theme"
 colorscheme ayu
+let g:airline_theme='ayu'
 
 set ruler                       " show the cursor position all the time
 set number                      " show line numbers
