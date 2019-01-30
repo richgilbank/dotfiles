@@ -92,15 +92,6 @@ alias vm 'cd ~/Code/vagrant; and vagrant mosh'
 alias vs 'cd ~/Code/vagrant; and vagrant ssh'
 
 ###################
-# Docker
-###################
-
-alias dcu 'docker-compose up'
-alias dcuf 'docker-compose up --build'
-alias dcd 'docker-compose down'
-alias dcdf 'docker-compose down --remove-orphans'
-
-###################
 # Utilities
 ###################
 
@@ -114,6 +105,3 @@ alias serve 'python -m SimpleHTTPServer'
 # NVM
 # set -x NVM_DIR "$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ]; and . "$NVM_DIR/nvm.sh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/richgilbank/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/richgilbank/Downloads/google-cloud-sdk/path.fish.inc'; end
