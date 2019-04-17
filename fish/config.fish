@@ -45,6 +45,11 @@ function restart-nginx
   sudo nginx -s reload
 end
 
+function docker-go-nuclear
+  docker volume rm (docker volume ls -qf dangling=true)
+	docker system prune --all
+end
+
 ###################
 # Git
 ###################
@@ -113,7 +118,8 @@ alias serve 'python -m SimpleHTTPServer'
 # set -x PATH "/usr/local/heroku/bin" $PATH "$HOME/.rvm/bin"
 # NVM
 # set -x NVM_DIR "$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ]; and . "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/nvm.sh" ]; and  "$NVM_DIR/nvm.sh"
+# nvm use default
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/richgilbank/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/richgilbank/Downloads/google-cloud-sdk/path.fish.inc'; end
