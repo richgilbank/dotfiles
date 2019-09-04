@@ -96,14 +96,11 @@ set-option -g status-right '#[fg=green]#H#[default] %m/%d/%y %I:%M\
  set -g status-fg white
 
  # highlight current window
- set-window-option -g window-status-current-fg black
- set-window-option -g window-status-current-bg green
+ set-window-option -g window-status-current-style fg=black,bg=green
 
  # set color of active pane
- set -g pane-border-fg colour233
- set -g pane-border-bg black
- set -g pane-active-border-fg green
- set -g pane-active-border-bg black
+ set -g pane-border-style fg=colour233,bg=black
+ set -g pane-active-border-style fg=green,bg=black
 
 # clear buffer
 bind-key C send-keys -R \; clear-history
