@@ -17,10 +17,19 @@ filetype plugin indent on
 
 " Some view/ux related stuff
 set termguicolors               " enable true colors support"
-let ayucolor="mirage"           " for mirage version of theme"
-" let ayucolor="light"           " for mirage version of theme"
+" let ayucolor="mirage"           " for mirage version of theme"
+let ayucolor="light"           " for mirage version of theme"
 colorscheme ayu
 let g:airline_theme='ayu'
+function ToggleColors()
+  if (g:ayucolor == "light")
+    let g:ayucolor="mirage"
+  else
+    let g:ayucolor="light"
+  endif
+  colorscheme ayu
+endfunction
+nnoremap <F8> :call ToggleColors()<CR>
 
 set ruler                       " show the cursor position all the time
 set number                      " show line numbers
@@ -188,7 +197,11 @@ let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_dotfiles = 0 "so ctrlp won't search dotfiles/dotdirs
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_map = '<leader>f'
-let g:ctrlp_custom_ignore = 'build'
+" Sane Ignore For ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|vendor\|node_modules\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp\|node_modules$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
