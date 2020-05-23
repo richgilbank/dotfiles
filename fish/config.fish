@@ -122,4 +122,4 @@ alias serve 'python -m SimpleHTTPServer'
 # nvm use default
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/richgilbank/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/richgilbank/Downloads/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/richgilbank/google-cloud-sdk/path.fish.inc' ]; . '/Users/richgilbank/google-cloud-sdk/path.fish.inc'; end
