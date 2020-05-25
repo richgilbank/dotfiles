@@ -17,8 +17,7 @@ filetype plugin indent on
 
 " Some view/ux related stuff
 set termguicolors               " enable true colors support"
-" let ayucolor="mirage"           " for mirage version of theme"
-let ayucolor="light"           " for mirage version of theme"
+let ayucolor="mirage"           " for mirage version of theme"
 colorscheme ayu
 let g:airline_theme='ayu'
 function ToggleColors()
