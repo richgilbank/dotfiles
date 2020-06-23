@@ -1,12 +1,5 @@
 **/*.DS_STORE
 git/gitconfig.symlink
 .localrc
-emacs/emacs.d.symlink/elpa
-emacs/emacs.d.symlink/backups
-emacs/emacs.d.symlink/places
-emacs/emacs.d.symlink/.smex-items
-emacs/emacs.d.symlink/eshell/history
-emacs/emacs.d.symlink/eshell/lastdir
-vim/vim.symlink/bundle/*
-!vim/vim.symlink/bundle/vundle
 vim/vim.symlink/undo/
+vim/vim.symlink/plugged/

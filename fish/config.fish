@@ -36,7 +36,7 @@ function vim
 end
 
 function viminstall
-  vim +BundleInstall +qall
+  vim +PlugInstall
 end
 
 function restart-nginx

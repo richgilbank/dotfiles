@@ -1,19 +1,25 @@
-" syntax enable
-" set nocompatible               " be iMproved
-" filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" load all plugins
-source $HOME/.vim/packages.vim
+" vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rking/ag.vim'
+"Plug 'fugitive.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'bling/vim-airline'
+"Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'richgilbank/ayu-vim'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+call plug#end()
 
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸\ 
 set fillchars+=stl:\ ,stlnc:\
-
-filetype plugin indent on
 
 " Some view/ux related stuff
 set termguicolors               " enable true colors support"
@@ -184,9 +190,6 @@ let g:NERDTreeQuitOnOpen = 0
 
 " Ctags
 set tags=.tags,.gemtags
-
-"autoclose
-nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
 
 " CtrlP
 let g:ctrlp_extensions = ['tag']
